@@ -1,3 +1,3 @@
-# Curso_Santander: Git 
+# Curso_Santander: Git/Versionamento
 
-#Salvando modificações no Git
+#Salvando modificações no Git 
