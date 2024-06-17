@@ -1,30 +1,37 @@
 package Animais;
 
-import org.w3c.dom.ls.LSOutput;
+public class Cachorro extends Animal {
 
-public class Cachorro {
+    //atributos
 
-    private String nome;
-
-    private String cor;
-
-    private int altura;
-
-    private double peso;
-
+    static int numeroDeCachorro;
     private int tamanhoDoRabo;
 
-    //contrutores
+    //construtor default
 
-    public Cachorro() {}
-
-    public Cachorro(String nome, String cor, int altura, double peso, int tamanhoDoRabo, String estadoDeEspirito) {
+    public Cachorro(String nome, String cor, double peso, int tamanhoDoRabo, String estadoDeEspirito) {
+        super(nome,
+                cor,
+                peso);
         this.nome = nome;
         this.cor = cor;
         this.altura = altura;
         this.peso = peso;
         this.tamanhoDoRabo = tamanhoDoRabo;
         this.estadoDeEspirito = estadoDeEspirito;
+
+        numeroDeCachorro  ++;
+
+    }
+
+    //contrutores
+
+    public static int getNumeroDeCachorro() {
+        return numeroDeCachorro;
+    }
+
+    public static void setNumeroDeCachorro(int numeroDeCachorro) {
+        Cachorro.numeroDeCachorro = numeroDeCachorro;
     }
 
     private String estadoDeEspirito;
@@ -37,10 +44,6 @@ public class Cachorro {
         if (nome.equals("Lilly"))
             this.nome = null;
     }
-
-    private void comer() {
-    }
-
     public String getCor() {
         return cor;
     }
@@ -88,28 +91,33 @@ public class Cachorro {
     public String Interagir(String acao) {
 
         switch (acao) {
-            case "carinho": this.estadoDeEspirito = "feliz";
-            break;
-            case "vai dormir": this.estadoDeEspirito = "bravo";
-            break;
-            case "nada": this.estadoDeEspirito = "neutro";
+            case "carinho":
+                this.estadoDeEspirito = "feliz";
+                break;
+            case "vai dormir":
+                this.estadoDeEspirito = "bravo";
+                break;
+            case "nada":
+                this.estadoDeEspirito = "neutro";
                 break;
 
-            default: this.estadoDeEspirito = "Neutro";break;
+            default:
+                this.estadoDeEspirito = "Neutro";
+                break;
         }
 
         return this.estadoDeEspirito;
+    }
 
+    @Override
+    public String toString() {
+        return "Cachorro{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 
-
-
-//        if(acao.equals("carinho")) {
-//            this.estadoDeEspirito = "feliz";
-//        }else if(acao.equals("vai dormir")) {
-//            this.estadoDeEspirito = "Bravo";
-//        }else {
-//            this.estadoDeEspirito = "neutro";
-//        }
-//        return estadoDeEspirito;
+    @Override
+    public void soar() {
+        System.out.println("AU AU!");
     }
 }
