@@ -14,5 +14,6 @@ public class Main {
         cachorro1.soar();
         gato1.soar();
         passaro1.soar();
+
     }
 }
